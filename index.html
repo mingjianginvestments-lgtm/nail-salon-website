@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nail Theory - Professional Nail Salon</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fdf8f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #ff6b9d, #c44569);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        main {
+            margin-top: 80px;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(255, 107, 157, 0.8), rgba(196, 69, 105, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23fdf8f5" width="1200" height="600"/><circle fill="%23ff6b9d" opacity="0.1" cx="200" cy="150" r="80"/><circle fill="%23c44569" opacity="0.1" cx="800" cy="300" r="120"/><circle fill="%23ff6b9d" opacity="0.1" cx="1000" cy="100" r="60"/></svg>');
+            color: white;
+            text-align: center;
+            padding: 8rem 0 6rem;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #c44569;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #c44569;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card h3 {
+            color: #c44569;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .price {
+            font-weight: bold;
+            color: #ff6b9d;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+        }
+        
+        .about {
+            background: white;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .about-image {
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            height: 300px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+        
+        .contact {
+            background: #f8f9fa;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .contact-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .contact-item h3 {
+            color: #c44569;
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">💅 Nail Theory</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Welcome to Nail Theory</h1>
+                <p>Where beauty meets artistry. Experience premium nail care and stunning designs in a luxurious, relaxing environment.</p>
+                <a href="#contact" class="cta-button">Book Your Appointment</a>
+            </div>
+        </section>
+
+        <section id="services" class="section">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">💅</div>
+                        <h3>Classic Manicure</h3>
+                        <p>Complete nail care with cuticle treatment, shaping, and polish application.</p>
+                        <div class="price">Starting at $35</div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">✨</div>
+                        <h3>Gel Manicure</h3>
+                        <p>Long-lasting gel polish that stays chip-free for up to 3 weeks.</p>
+                        <div class="price">Starting at $45</div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🦶</div>
+                        <h3>Luxury Pedicure</h3>
+                        <p>Relaxing foot treatment with exfoliation, massage, and polish.</p>
+                        <div class="price">Starting at $50</div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🎨</div>
+                        <h3>Nail Art</h3>
+                        <p>Custom designs and artistic nail decorations by our skilled technicians.</p>
+                        <div class="price">Starting at $15</div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">💎</div>
+                        <h3>Acrylic Extensions</h3>
+                        <p>Beautiful, durable acrylic nail extensions in any length and shape.</p>
+                        <div class="price">Starting at $65</div>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🌟</div>
+                        <h3>Dip Powder</h3>
+                        <p>Strong, lightweight alternative to gel with vibrant color options.</p>
+                        <div class="price">Starting at $55</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section about">
+            <div class="container">
+                <h2>About Nail Theory</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>At Nail Theory, we believe that beautiful nails are more than just an accessory – they're a form of self-expression. Our team of experienced nail technicians combines technical expertise with artistic flair to create stunning results that exceed your expectations.</p>
+                        
+                        <p>We use only the highest quality products and maintain the strictest hygiene standards to ensure your safety and satisfaction. Our modern, comfortable salon provides a relaxing escape where you can unwind while we pamper your hands and feet.</p>
+                        
+                        <p>Whether you're looking for a classic French manicure, bold nail art, or the latest trends in nail fashion, we're here to bring your vision to life.</p>
+                    </div>
+                    <div class="about-image">
+                        <div>
+                            <h3>Professional Excellence</h3>
+                            <p>Licensed technicians with years of experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section contact">
+            <div class="container">
+                <h2>Visit Us Today</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>📍 Location</h3>
+                        <p>123 Beauty Boulevard<br>
+                        Salon City, SC 12345</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>📞 Phone</h3>
+                        <p>(555) 123-NAIL<br>
+                        (555) 123-6245</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>🕒 Hours</h3>
+                        <p>Mon-Sat: 9AM - 7PM<br>
+                        Sunday: 11AM - 5PM</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>💌 Email</h3>
+                        <p>hello@nailtheory.com<br>
+                        Book online or call!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Nail Theory. All rights reserved. | Follow us on social media for the latest trends!</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'linear-gradient(135deg, rgba(255, 107, 157, 0.95), rgba(196, 69, 105, 0.95))';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #ff6b9d, #c44569)';
+            }
+        });
+    </script>
+</body>
+</html>
